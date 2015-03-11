@@ -1,0 +1,61 @@
+<html>
+<span>ABC</span>
+	<script>
+	/*document.write('<h1>Hello</h1');
+	a="Hello!!!";
+	//window.onload=function bla(argument)
+	document.write('<h1>'+a+'</h1');
+	var d=document.createElement('div')
+	//d.innerHTML='<h1>+a+<h1>';
+	var h=document.createElement('h1')
+	h.innerHTML=a; d.appendChild(h);
+	h.onclick=function (){alert("Salut!")}
+	document.body.appendChild(d)*/
+	
+	</script>
+	<script type='text/html' id="t">
+	<div>
+		<p>NAME</p>
+		<p>AGE</p>
+		</div>
+	</script>	
+	<div id="content"></div>
+	<script>
+		var users=[]
+		users.push({name:"A", age:"18"});
+		users.push({name:"Clo", age:"22"});
+		users.push({name:"Sof", age:"13"});
+		var template=document.getElementById('t').innerHTML;
+		for (var i=0; i<users.length; i++){
+			//document.getElementById('content').innerHTML += parseTemplate(users[i]);
+			document.getElementById('content').appendChild(buildUser(users[i]));
+		}
+		function buildUser(data){
+			var d=document.createElement('div');
+			var p1=document.createElement('p');
+				p1.innerHTML=data.name;
+			var p2=document.createElement('p');
+				p2.innerHTML=data.age;
+		
+		d.appendChild(p1)
+		d.appendChild(p2)
+		return d;
+		}
+		/*function parseTemplate(data){
+			var result=template;
+			for(var k in data){
+				result=result.replace(k.toUpperCase(), data[k])
+			}*/
+			
+			//return result;
+			/*var d=document.createElement('div');
+			d.innerHTML=result;*/
+			//return d;
+		
+	</script>
+
+	
+
+	
+<p>CDE</p>
+</html>

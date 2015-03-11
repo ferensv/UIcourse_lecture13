@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+	<html>
+		<body>
+		<input type="text" id="name"/>
+		<input type="text" id="age"/>
+		<button id="b" onclick="newUser()" >asdsd</button>
+		
+	<script type='text/html' id="t">
+	<div>
+		<p>NAME</p>
+		<p>AGE</p>
+		</div>
+	</script>	
+	<div id="content"></div>
+	<script>
+		var users=[]
+		users.push({name:"A", age:"18"});
+		users.push({name:"Clo", age:"22"});
+		//users.push({name:"Sof", age:"13"});
+		console.log(this);
+		var template=document.getElementById('t').innerHTML;
+		for (var i=0; i<users.length; i++){
+			//document.getElementById('content').innerHTML += parseTemplate(users[i]);
+			//document.getElementById('content').appendChild(buildUser(users[i]));
+			addUser(users[i])
+		}
+		
+		function buildUser(data){
+			var d=document.createElement('div');
+			var p1=document.createElement('p');
+				p1.innerHTML=data.name;
+			var p2=document.createElement('p');
+				p2.innerHTML=data.age;
+			var b=document.createElement('button');
+				b.innerHTML="delete";
+				b.onclick=function(){
+					deleteUser(data,d)
+				}
+		d.appendChild(b)
+		d.appendChild(p1)
+		d.appendChild(p2)
+		return d;
+		}
+		
+		function addUser(user){
+			document.getElementById('content').appendChild(buildUser(user));
+		}
+		
+		function newUser(){
+			var user={
+				name:document.getElementById("name").value,
+				age:document.getElementById("age").value
+			}
+			addUser(user);
+				users.push(user);
+		} 
+	Array.prototype.without=function(item){
+		var n=[];
+		for (var i=0; i<this.length;i++){
+			if(!equal(this[i], item))
+				n.push(this[i])
+			
+			
+		}return n;
+	}
+		function equal(a,b){
+			return JSON.stringify(a)==JSON.stringify(b);
+		}
+	function deleteUser(user, node){
+		users=users.without(user)
+		node.parentElement.removeChild(node)
+	}	
+	/*var oldBuildUser = buildUser;
+	window.bui*/
+	</script>
+	</body>
+</html>
